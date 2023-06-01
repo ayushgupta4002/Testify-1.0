@@ -1,18 +1,5 @@
-const express = require('express');
 const { faker } = require('@faker-js/faker');
-const app = express();
-const port = 3000;
-const router = express.Router();
-const route = require('./routes/routes');
-const cors = require('cors')
-app.use(cors());
-
-app.use("/api/route",route);
-
-
-
-
-app.get('/get-data', (req, res) => {
+exports.getdata = async (req, res) => {
     const { schema } = req.query;
     console.log(req.query);
 
@@ -26,7 +13,9 @@ app.get('/get-data', (req, res) => {
     } catch (error) {
         res.status(400).json({ error: 'Invalid data schema' });
     }
-});
+
+};
+
 
 function generateMockData(schema) {
     const data = {};
@@ -146,7 +135,3 @@ function generateMockData(schema) {
 
     return data;
 }
-
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
