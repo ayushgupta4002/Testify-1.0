@@ -1,5 +1,9 @@
 const { faker } = require('@faker-js/faker');
+
+
+
 exports.getdata = async (req, res) => {
+  
     const { schema } = req.query;
     console.log(req.query);
 
