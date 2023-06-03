@@ -1,23 +1,22 @@
-const { faker } = require('@faker-js/faker');
+
+const { faker } = require("@faker-js/faker");
 
 
 
 exports.getdata = async (req, res) => {
   
     const { schema } = req.query;
-    console.log(req.query);
-
+  
     if (!schema) {
-        return res.status(400).json({ error: 'Missing data schema parameter' });
+      return res.status(400).json({ error: 'Missing data schema parameter' });
     }
-
+  
     try {
-        const data = generateMockData(JSON.parse(schema));
-        res.json(data);
+      const data = generateMockData(JSON.parse(schema));
+      res.json(data);
     } catch (error) {
-        res.status(400).json({ error: 'Invalid data schema' });
+      res.status(400).json({ error: 'Invalid data schema' });
     }
-
 };
 
 
