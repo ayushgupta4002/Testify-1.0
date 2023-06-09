@@ -1,7 +1,7 @@
 const express = require("express");
 const { faker } = require("@faker-js/faker");
 const app = express();
-const port = 3000;
+const port = 5000;
 const router = express.Router();
 const route = require("./routes/routes");
 const cors = require("cors");

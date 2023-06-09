@@ -54,8 +54,8 @@ function otp() {
     if (error) {
       return console.log(error);
     }
-    console.log(info);
-    console.log('Message sent: %s', info.messageId);
+    // console.log(info);
+    // console.log('Message sent: %s', info.messageId);
 
 
 
