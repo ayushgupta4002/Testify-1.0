@@ -10,13 +10,6 @@ import Documentation from "./Documentation";
 function App() {
 
 
-  const spinner = document.getElementById("spinner");
-  if (spinner) {
-    setTimeout(() => {
-      spinner.style.display = "none";
-      
-    }, 2000);
-  }
 
 
   return (
