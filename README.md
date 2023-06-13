@@ -68,14 +68,6 @@ For detailed API documentation, including available endpoints, data types, and u
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request. 
 
-Please make sure to follow the [Contributing Guidelines](CONTRIBUTING.md) when contributing to this project.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-
-
 ## Conclusion
 
 Testify simplifies unit testing for your projects by generating testing data effortlessly. Enjoy hassle-free testing without the need to import or manage any packages. Start using Testify today and ensure the quality and reliability of your code!
