@@ -38,7 +38,7 @@ export function Login() {
   
   const verifyotp = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/route/verify", {
+    const res = await fetch("https://testify101.vercel.app/api/route/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
