@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import Docmain from "./Components/Docmain";
 
 function Documentation() {
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+};
   return (
     <>
       <div className=" overflow-x-hidden">
@@ -17,7 +20,7 @@ function Documentation() {
               Documentation
             </div>
           </div>
-          <div class="h-[300vh] min-h-[1em]  w-[0.12vw] bg-gradient-to-tr from-transparent via-neutral-800  opacity-20 dark:opacity-200"></div>
+          <div class="h-[670vh] min-h-[1em]  w-[0.12vw] bg-gradient-to-tr from-transparent via-neutral-800  opacity-20 dark:opacity-200"></div>
           <div className="h-10 mt-[14vh] xllg:w-[80vw] w-[70vw]">
             <div className="flex flex-col">
             <Docmain/>
@@ -26,7 +29,16 @@ function Documentation() {
           <div class="h-[100vh] min-h-[1em]  w-[0.12vw] xllg:hidden bg-gradient-to-tr from-transparent via-neutral-800  opacity-20 dark:opacity-200"></div>
           <div className="h-10 xllg:hidden mt-[14vh] w-[15vw]">hi</div>
         </div>
+        <div className="footer">
+                    {/* <ul className='footer-list'>
+                        <li><p className="footer-items" onClick={scrollToAbout}>Github</p></li>
+                        <li><p className="footer-items"><a href="mailto:devfeed.in@gmail.com">Contact</a></p></li>
+                        <li><p className='footer-items' onClick={scrollToSubs}>Documentation</p></li>
+                    </ul> */}
+                <div className="copyright">&copy; Copyright {getCurrentYear()} by Testify. All rights reserved.</div>
+            </div>
       </div>
+ 
     </>
   );
 }

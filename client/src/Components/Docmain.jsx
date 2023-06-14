@@ -3,13 +3,44 @@ import "../CSS/Docmain.css";
 import DataTable from "./DataTable";
 
 function Docmain() {
+  const data = {
+    name: "John Doe",
+    age: 32,
+    email: "johndoe@example.com",
+  };
 
-  const data={
-    "name": "John Doe",
-    "age": 32,
-    "email": "johndoe@example.com"
-  }
-  
+  const schema = {
+    airline: "object",
+    finance: "object ",
+    company: "string",
+  };
+
+  const response = {
+    airline: {
+      airline: {
+        name: "Air Algerie",
+        iataCode: "AH",
+      },
+      airplane: {
+        name: "Embraer Legacy 600",
+        iataTypeCode: "ER3",
+      },
+      aircraft: "narrowbody",
+      airport: {
+        name: "Los Angeles International Airport",
+        iataCode: "LAX",
+      },
+    },
+    finance: {
+      currency_name: "CFA Franc BCEAO",
+      currency_symbol: "₨",
+      account_name: "Auto Loan Account",
+      account_number: "35144354",
+      amount: "405.59",
+    },
+    company: "Schoen, Fay and Schultz",
+  };
+
   return (
     <div className=" mx-7 p-4 ">
       <h1 className="text-5xl font-bold mb-5">TesTify</h1>
@@ -85,11 +116,10 @@ function Docmain() {
 
         <div className="my-4">
           <ul className="list-disc list-inside">
-          
-              <h3 className="text-lg font-medium mb-2 marginrequiredtxt">
-              <li>  Retrieve Testing Data   </li>
-              </h3>
-         
+            <h3 className="text-lg font-medium mb-2 marginrequiredtxt">
+              <li> Retrieve Testing Data </li>
+            </h3>
+
             <p>
               This endpoint allows you to retrieve testing data based on the
               provided schema.
@@ -107,25 +137,34 @@ function Docmain() {
             </div>
 
             <div className="my-4">
-           
-                <h4 className="text-lg font-medium mb-2 marginrequiredtxt"> <li>Parameters  </li></h4>
-             
+              <h4 className="text-lg font-medium mb-2 marginrequiredtxt">
+                {" "}
+                <li>Parameters </li>
+              </h4>
+
               <ul className="list-none list-inside ">
-                <li className="mt-4"> 
-                  <code className="codebackground text-md p-1 rounded-md border ">Api-key(required)</code> Your API key obtained from
-                  Testify WebApp.
+                <li className="mt-4">
+                  <code className="codebackground text-md p-1 rounded-md border ">
+                    Api-key(required)
+                  </code>{" "}
+                  Your API key obtained from Testify WebApp.
                 </li>
                 <li className="mt-4">
-                  <code className="codebackground text-md p-1 rounded-md border ">schema (required)</code> A JSON object representing the
-                  schema for the desired testing data. Refer to the
-                  documentation for available data types and their field names.
+                  <code className="codebackground text-md p-1 rounded-md border ">
+                    schema (required)
+                  </code>{" "}
+                  A JSON object representing the schema for the desired testing
+                  data. Refer to the documentation for available data types and
+                  their field names.
                 </li>
               </ul>
             </div>
           </ul>
 
           <div className="my-4">
-            <h4 className="text-lg font-medium mb-[5vh] marginrequiredtxt">Example</h4>
+            <h4 className="text-lg font-medium mb-[5vh] marginrequiredtxt">
+              Example
+            </h4>
             <code className="codebackground text-md p-3 rounded-md border  ">
               GET
               /get-data/your-api-key?schema=&#123;"name":"string","age":"age","email":"email"&#125;
@@ -133,9 +172,11 @@ function Docmain() {
           </div>
 
           <div className="my-4">
-            <h4 className="text-lg font-medium mb-[5vh] marginrequired">Response</h4>
+            <h4 className="text-lg font-medium mb-[5vh] marginrequired">
+              Response
+            </h4>
             <pre className="codebackground text-md p-3 rounded-md border overflow-x-auto ">
-            {JSON.stringify(data, null, 2)}
+              {JSON.stringify(data, null, 2)}
             </pre>
           </div>
         </div>
@@ -144,18 +185,38 @@ function Docmain() {
       <div className="my-4">
         <h2 className="text-4xl font-bold mb-2 marginrequired">Data Types</h2>
         <p>The Testify API supports the following Field in the schema :</p>
-        <DataTable/>
-        <pre>{/* Insert the JSON representation of the data types here */}</pre>
+        <DataTable />
       </div>
 
       <div className="my-4">
-        <h2 className="text-2xl font-bold mb-2">Conclusion</h2>
+        <h4 className="text-lg font-medium mb-[5vh] marginrequired">
+          A basic schema can look like this :
+        </h4>
+        <pre className="codebackground text-md p-3 rounded-md border overflow-x-auto ">
+          {JSON.stringify(schema, null, 2)}
+        </pre>
+      </div>
+
+      <div className="mb-2">
+        <p>Which when passed into the API will return :</p>
+      </div>
+      <span>
+        <code className="codebackground text-md p-1 rounded-md border ">
+          200 OK
+        </code>{" "}
+        : Request is successful
+      </span>
+      <pre className="codebackground text-md p-3 mt-4 rounded-md border overflow-x-auto ">
+        {JSON.stringify(response, null, 2)}
+      </pre>
+ 
+      <div className="my-4">
+        <h2 className="text-2xl font-medium mb-2">Next Steps</h2>
         <p>
-          The Testify WebApp API provides a convenient way to generate testing
-          data based on schemas. By leveraging the available data types, you can
-          easily generate realistic and diverse testing data for your
-          applications. If you have any further questions or need assistance,
-          please contact our support team at support@example.com.
+        Congratulations! You have successfully set up and explored the Testify API. To further enhance your experience . Experiment with different schema configurations to generate specific types of testing data that match your application's requirements. Refer to the API documentation for a comprehensive list of available data types and their corresponding fields.
+
+        <p className="mt-6"><span className="font-bold text-lg" > Note :</span> The API key provided to you is a confidential piece of information that grants access to Testify . It is important to keep your API key 
+        secure and avoid sharing it with unauthorized individuals  </p>
         </p>
       </div>
     </div>
