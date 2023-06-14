@@ -83,8 +83,8 @@ function Docmain() {
         <div className="py-4">
           <ul className="list-disc list-inside">
             <li>
-              Sign up for an account on the Testify website
-              (https://www.testify.com).
+              Verify your on the Testify website
+              (https://testify-1-0.vercel.app/login).
             </li>
             <li>
               Open the email and verify your email address using the OTP sent to
@@ -116,6 +116,29 @@ function Docmain() {
 
         <div className="my-4">
           <ul className="list-disc list-inside">
+
+          <h3 className="text-lg font-medium mb-2 marginrequiredtxt">
+              <li> BaseUrl </li>
+            </h3>
+
+            <p>
+              This is the BaseUrl for you to make requests.
+            </p>
+
+            <div className="my-4">
+              <h4 className="text-md font-medium mb-2">
+                BaseUrl :{" "}
+                <span>
+                  <code className="codebackground text-md p-1 rounded-md border ">
+                    baseurl
+                  </code>
+                </span>
+              </h4>
+            </div>
+
+
+
+
             <h3 className="text-lg font-medium mb-2 marginrequiredtxt">
               <li> Retrieve Testing Data </li>
             </h3>
