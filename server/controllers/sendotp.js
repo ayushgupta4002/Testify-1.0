@@ -87,8 +87,21 @@ function otp() {
 const deleteotp = (emailuser) => {
 
 
-  userModel.updateOne({ email: emailuser }, { $set: { otp: "" } })
-    .then(() => console.log("otp field empty"))
+  // userModel.updateOne({ email: emailuser }, { $set: { otp: "" } })
+  //   .then(() => console.log("otp field empty"))
+  //   .catch((error) => console.log(error))
+
+  console.log("this is delete entry console");
+  userModel
+    .findOne({ email: emailuser })
+    .then((result) => {
+      if (result.otpverified !== "1") {
+        userModel
+          .deleteOne({ email: emailuser })
+          .then(() => console.log("deleted entry"))
+          .catch((error) => console.log(error));
+      }
+    })
     .catch((error) => console.log(error))
 
 }
