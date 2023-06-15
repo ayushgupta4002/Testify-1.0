@@ -79,7 +79,7 @@ function otp() {
   setTimeout(() => {
     deleteotp(emailuser)
 
-  }, 300000);
+  }, 240000);
 
 
 }
@@ -95,6 +95,7 @@ const deleteotp = (emailuser) => {
   userModel
     .findOne({ email: emailuser })
     .then((result) => {
+      console.log(result)
       if (result.otpverified !== "1") {
         userModel
           .deleteOne({ email: emailuser })

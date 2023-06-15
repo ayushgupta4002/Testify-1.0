@@ -6,12 +6,14 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 export function Login() {
   const [click, setclick] = useState(false);
+  const [loading ,setloading]= useState(false);
   const [email, setEmail] = useState("");
   const [otp, setotp] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    setloading(true);
     e.preventDefault();
-    const res = await fetch("https://testify101.vercel.app/api/route/sendotp", {
+    const res = await fetch("http://localhost:5000/api/route/sendotp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +40,7 @@ export function Login() {
   
   const verifyotp = async (e) => {
     e.preventDefault();
-    const res = await fetch("https://testify101.vercel.app/api/route/verify", {
+    const res = await fetch("http://localhost:5000/api/route/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -121,9 +123,14 @@ export function Login() {
                   <button
                     onClick={handleSubmit}
                     type="button"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                    className={ loading? "hidden" : "inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"}
                   >
-                    Login
+                    Send OTP
+                  </button>
+                  <button
+                    type="button"
+                    className={ loading? "inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" : "hidden" }
+                  >Loading...
                   </button>
                 </div>
                 <div className={click ? "" : "hidden"}>
