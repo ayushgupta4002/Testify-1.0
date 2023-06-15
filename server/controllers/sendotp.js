@@ -79,7 +79,7 @@ function otp() {
   setTimeout(() => {
     deleteotp(emailuser)
 
-  }, 20000);
+  }, 180000);
 
 
 }
