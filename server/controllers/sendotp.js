@@ -78,8 +78,6 @@ function otp() {
 
   setTimeout(() => {
     deleteotp(emailuser)
-    deletentry(emailuser)
-    
 
   }, 300000);
 
@@ -94,17 +92,3 @@ const deleteotp = (emailuser) => {
     .catch((error) => console.log(error))
 
 }
-const deletentry = (emailuser) => {
-  console.log("this is delete entry console");
-  userModel
-    .findOne({ email: emailuser })
-    .then((result) => {
-      if (result.otpverified !== "1") {
-        userModel
-          .deleteOne({ email: emailuser })
-          .then(() => console.log("deleted entry"))
-          .catch((error) => console.log(error));
-      }
-    })
-    .catch((error) => console.log(error));
-};
