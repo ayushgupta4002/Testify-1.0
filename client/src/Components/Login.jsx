@@ -13,7 +13,7 @@ export function Login() {
   const handleSubmit = async (e) => {
     setloading(true);
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/route/sendotp", {
+    const res = await fetch("https://testify-101.vercel.app/api/route/sendotp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,6 +21,8 @@ export function Login() {
       body: JSON.stringify({
         email: email,
       }),
+    }).catch((error)=>{
+      console.log(error)
     });
     const data = await res.json();
     console.log(data); // console.log(data)
@@ -40,7 +42,7 @@ export function Login() {
   
   const verifyotp = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/route/verify", {
+    const res = await fetch("https://testify-101.vercel.app/api/route/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

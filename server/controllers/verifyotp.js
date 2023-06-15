@@ -16,7 +16,7 @@ const deletentry = (emailuser) => {
     .catch((error) => console.log(error));
 };
 
-exports.verify = async function (req, res) {
+exports.verifyotp = async function (req, res) {
   try {
     var otpmain = req.body.otp;
     var emailuser = req.body.email;
@@ -24,6 +24,14 @@ exports.verify = async function (req, res) {
     console.log(otpmain);
 
     userModel.findOne({ email: emailuser }).then((result) => {
+
+      if(result==null){
+        res.send({
+          message: "otp expired",
+        });
+      }
+
+
       if (result.otp == otpmain) {
         userModel
           .updateOne({ email: emailuser }, { $set: { otpverified: "1" } })
@@ -51,6 +59,10 @@ exports.verify = async function (req, res) {
       }
     });
   } catch (error) {}
+};
+
+exports.verify = async function (req, res) {
+ 
 };
 
 const sendkey = function (req, res, { email }, { key }) {
