@@ -93,17 +93,30 @@
     @media (max-width:710px)
     {
         padding: 1.5vw;
+        font-size: 2vh;
    }
    @media (max-width:500px)
    {
        padding: 2vw;
+       font-size: 1.7vh;
+
   }
-  @media (max-width:390px)
+  @media (max-width:410px)
   {
       padding: 2.5vw;
-      font-size: 2vh;
+      font-size: 1.3vh;
  }
-     
+ @media (max-width:380px)
+ {
+     padding: 2vw;
+     font-size: 1.2vh;
+}
+@media (max-width:327px)
+{
+    padding: 2vw;
+    font-size: 1.2vh;
+}
+   
 }
 
 .subscribe:hover {

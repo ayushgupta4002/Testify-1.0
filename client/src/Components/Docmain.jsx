@@ -81,7 +81,7 @@ function Docmain() {
           works:
         </p>
         <div className="py-4">
-          <ul className="list-disc list-inside">
+          <ul className="list-disc comme list-inside">
             <li>
               Verify your on the Testify website
               (https://testify-1-0.vercel.app/login).
@@ -100,7 +100,7 @@ function Docmain() {
           </ul>
         </div>
 
-        <p>
+        <p className="comme">
           By completing the email verification process, you ensure that only
           authorized users can access and utilize the Testify API. If you
           encounter any issues during the email verification or API key
@@ -185,13 +185,15 @@ function Docmain() {
           </ul>
 
           <div className="my-4">
-            <h4 className="text-lg font-medium mb-[5vh] marginrequiredtxt">
+            <h4 className="text-lg font-medium mb-[5vh]    marginrequiredtxt">
               Example
             </h4>
-            <code className="codebackground text-md p-3 rounded-md border  ">
-              GET
-              /get-data/your-api-key?schema=&#123;"name":"string","age":"age","email":"email"&#125;
-            </code>
+            <pre className="codebackground text-md p-3 rounded-md border overflow-x-auto ">
+            GET /get-data/your-api-key?schema=&#123;"name":"string","age":"age","email":"email"&#125;
+            </pre>
+            {/* <span className="codebackground text-md p-3 rounded-md border overflow-x-auto  ">
+              
+            </span> */}
           </div>
 
           <div className="my-4">
@@ -234,11 +236,11 @@ function Docmain() {
       </pre>
  
       <div className="my-4">
-        <h2 className="text-2xl font-medium mb-2">Next Steps</h2>
-        <p>
+        <h2 className="text-2xl font-medium mb-2 marginrequiredtxt">Next Steps</h2>
+        <p className="comme">
         Congratulations! You have successfully set up and explored the Testify API. To further enhance your experience . Experiment with different schema configurations to generate specific types of testing data that match your application's requirements. Refer to the API documentation for a comprehensive list of available data types and their corresponding fields.
 
-        <p className="mt-6"><span className="font-bold text-lg" > Note :</span> The API key provided to you is a confidential piece of information that grants access to Testify . It is important to keep your API key 
+        <p className="mt-6 comme"><span className="font-bold text-lg" > Note :</span> The API key provided to you is a confidential piece of information that grants access to Testify . It is important to keep your API key 
         secure and avoid sharing it with unauthorized individuals  </p>
         </p>
       </div>

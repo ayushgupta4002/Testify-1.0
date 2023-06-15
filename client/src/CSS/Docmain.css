@@ -1,10 +1,19 @@
 .marginrequired{
     margin-top: 7vh;
     margin-bottom: 3vh;
+    font-family: "Poppins", sans-serif;
+
 }
 .marginrequiredtxt{
     margin-top:6vh;
+    font-family: Comme;
+
 }
 .codebackground{
     background-color: #f6f8fa;
+
+}
+.comme{
+    font-family: Comme;
+
 }

@@ -17,7 +17,7 @@ export default function Navbar() {
             <div className="flex ">
                 <a href="">
                 <Link to='/login'>      <div className="subscribe font-medium ">
-                         Get Your Api Key Here
+                         Get Your Api Key 
                         {/* <img src={require("../Assets/right.png")} alt=""  /> */}
                     </div></Link>
 

@@ -15,7 +15,7 @@ module.exports = {
 
       'xlg': {'max': '1243px'},
 
-      'mlg': {'max': '1023px'},
+      'mlg': {'max': '1025px'},
       // => @media (max-width: 1103px) { ... }
 
 
@@ -28,8 +28,9 @@ module.exports = {
       'xnm':{'max':'860px'},
 
       'sm': {'max': '580px'},
+
       // => @media (max-width: 639px) { ... }
-      'xsml': {'max': '450px'},
+      'xsml': {'max': '556px'},
 
       'xsm': {'max': '380px'},
       'xssm': {'max': '340'},
