@@ -13,7 +13,7 @@ export function Login() {
   const handleSubmit = async (e) => {
     setloading(true);
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/route/sendotp", {
+    const res = await fetch("https://testify101.vercel.app/api/route/sendotp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
