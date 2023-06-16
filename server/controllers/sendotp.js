@@ -45,9 +45,9 @@ function otp() {
   var mailOptions = {
     from: '"Ayush" <ayush4002gupta@gmail.com>',
     to: emailuser,
-    subject: 'Nice Nodemailer test',
-    text: `Hey there, This is your otp for verification : ${otpgenerated}`,
-    html: `<b>Hey there! </b>This is your otp for verification : ${otpgenerated}`,
+    subject: 'OTP for verification',
+    text: `Hey there, <p> This is your otp for verification : <b> ${otpgenerated} </b>`,
+    html: `Hey there, <p> This is your otp for verification : <b> ${otpgenerated} </b>`,
 
   };
   transport.sendMail(mailOptions, (error, info) => {
