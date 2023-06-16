@@ -1,31 +1,28 @@
-var nodemailer = require('nodemailer');
+var nodemailer = require("nodemailer");
 require("dotenv").config();
-const otpGenerator = require('otp-generator');
-const userModel = require('../db');
-const { response } = require('express');
-require('dotenv').config()
-
+const otpGenerator = require("otp-generator");
+const userModel = require("../db");
+const { response } = require("express");
+require("dotenv").config();
 
 exports.send = async function (req, res) {
   var email = req.body.email;
-  console.log(email)
-  sendMail(req,res,{email})
+  console.log(email);
+  sendMail(req, res, { email });
+};
 
-}
- 
 function otp() {
-  const otpgenerated = otpGenerator.generate(6, { upperCaseAlphabets: false, lowerCaseAlphabets: false, specialChars: false });
+  const otpgenerated = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    lowerCaseAlphabets: false,
+    specialChars: false,
+  });
   console.log(otpgenerated);
   return otpgenerated;
-  
 }
 
- const sendMail =  function(req,res,{email}){
-
-  var otpgenerated=otp();
-
- 
-
+const sendMail = function (req, res, { email }) {
+  var otpgenerated = otp();
 
   var emailuser = email;
 
@@ -34,21 +31,19 @@ function otp() {
     port: 587,
     auth: {
       user: process.env.EMAIL_SENDER,
-      pass: process.env.EMAIL_PASSWORD
+      pass: process.env.EMAIL_PASSWORD,
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
-
 
   var mailOptions = {
     from: '"Ayush" <ayush4002gupta@gmail.com>',
     to: emailuser,
-    subject: 'OTP for verification',
+    subject: "OTP for verification",
     text: `Hey there, <p> This is your otp for verification : <b> ${otpgenerated} </b>`,
     html: `Hey there, <p> This is your otp for verification : <b> ${otpgenerated} </b>`,
-
   };
   transport.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -57,52 +52,30 @@ function otp() {
     // console.log(info);
     // console.log('Message sent: %s', info.messageId);
 
-
-
-    const user = new userModel({
-      email: emailuser,
-      otpverified: "",
-      otp: otpgenerated,
-      key: ""
-
-    });
-
-    user.save().then(() => { 
-      res.status(200).json({ message: 'email sent with otp' });
-
-     });
-
-  })
-
-
-
-  setTimeout(() => {
-    deleteotp(emailuser)
-
-  }, 180000);
-
-
-}
-
-const deleteotp = (emailuser) => {
-
-
-  // userModel.updateOne({ email: emailuser }, { $set: { otp: "" } })
-  //   .then(() => console.log("otp field empty"))
-  //   .catch((error) => console.log(error))
-
-  console.log("this is delete entry console");
-  userModel
-    .findOne({ email: emailuser })
-    .then((result) => {
-      console.log(result)
-      if (result.otpverified !== "1") {
-        userModel
-          .deleteOne({ email: emailuser })
-          .then(() => console.log("deleted entry"))
+    userModel
+      .findOne({ email: emailuser })
+      .then((result) => {
+        if (result === null) {
+          const user = new userModel({
+            email: emailuser,
+            otpverified: "",
+            otp: otpgenerated,
+            key: "",
+          });
+          user.save().then(() => {
+            res.status(200).json({ message: "email sent with otp" });
+          });
+        }
+        else if (result.otpverified !== "1") {
+          userModel
+          .updateOne({ email: emailuser }, { $set: { otp : otpgenerated } })
+          .then(() => res.send({"message":"new otp is sent"}))
           .catch((error) => console.log(error));
-      }
-    })
-    .catch((error) => console.log(error))
+        }
+      })
+      .catch((error) => console.log(error));
+  });
 
-}
+
+};
+

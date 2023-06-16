@@ -32,7 +32,7 @@ exports.verifyotp = async function (req, res) {
       }
 
 
-      if (result.otp == otpmain) {
+      else if (result.otp == otpmain) {
         userModel
           .updateOne({ email: emailuser }, { $set: { otpverified: "1" } })
           .then(() => console.log("otp field empty"))
@@ -43,13 +43,13 @@ exports.verifyotp = async function (req, res) {
         console.log(key);
         sendkey(req, res, { email }, { key });
       }
-      if (result == null) {
+      else if (result == null) {
         res.send({
           message: "otp expired please try again",
         });
         deletentry(emailuser);
       }
-      if (result.otp !== otpmain) {
+      else if (result.otp !== otpmain) {
         res.send({
           message: "wrong otp",
         });

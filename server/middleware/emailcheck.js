@@ -9,7 +9,12 @@ exports.emailcheck = function (req, res, next) {
       .then((data) => {
         console.log(data);
         if (data !== null ) {
-          return res.status(401).json({ message: "user exists!" });
+          if(data.otpverified === ""){
+            next()
+          }
+          else{
+            return res.status(401).json({ message: "user exists!" });
+          }
         }else{
             next();
         }
