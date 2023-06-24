@@ -130,7 +130,7 @@ function Docmain() {
                 BaseUrl :{" "}
                 <span>
                   <code className="codebackground text-md p-1 rounded-md border ">
-                    https://testify101.vercel.app/
+                    https://testify101.vercel.app/api/route
                   </code>
                 </span>
               </h4>
